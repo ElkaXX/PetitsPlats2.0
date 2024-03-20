@@ -1,28 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Les petits plats</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@200..800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../dist/main.css" />
-    <script src="js/index.js" defer></script>
-  </head>
-  <body>
-    <header
-      class="pt-[50px] px-[70px] h-[666px] bg-cover bg-center bg-[url('/src/img/header.jpeg')]"
-    >
-      <img class="w-[207px] h-[25px]" src="./img/logo.png" alt="Logo" />
-      <div class="mx-auto w-[550px] mt-[170px] text-[#FFD15B] text-center font-anton text-4xl font-normal leading-normal">
-        CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Les petits plats</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../dist/main.css">
+  <script src="js/index.js" defer></script>
+</head>
+<body>
+<header class="pt-[50px] px-[70px] h-[666px] bg-cover bg-center bg-[url('/src/img/header.jpeg')]">
+  <img class="w-[207px] h-[25px]" src="./img/logo.png" alt="Logo">
+  <div class="mx-auto w-[550px] mt-[170px] text-[#FFD15B] text-center font-anton text-4xl font-normal leading-normal">
+    CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES
+  </div>
+  <div class="mt-[30px] flex justify-center relative">
+    <div class="relative">
+      <input type="text" class="w-[954px] h-[72px] flex-shrink-0 rounded-[11px] bg-[#FFF] px-4" placeholder="Rechercher...">
+      <div class="absolute right-[10px] top-[10px]">
+        <div class="w-[51px] h-[52px] flex items-center justify-center bg-[#1B1B1B] rounded-[10px]">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 29" class="w-[27px] h-[28px] fill-transparent">
+            <circle cx="10" cy="10.4219" r="9.5" stroke="white"/>
+            <line x1="18.3536" y1="19.0683" x2="27.3536" y2="28.0683" stroke="white"/>
+          </svg>
+        </div>
       </div>
-    </header>
+    </div>
+  </div>
+</header>
 
-    <h1 class="text-3xl font-bold underline">Hello world!</h1>
-  </body>
+<main class="px-[70px] pt-[30px] bg-[#EDEDED]">
+  <div class="flex gap-60 items-center">
+    <div class="search-filter relative flex items-center font-Manrope">
+      <input type="text" class="filter-input pl-[16px]" placeholder="Ingrédients">
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" fill="none" class="absolute right-0 mr-[16px]">
+        <path d="M1 1L7.5 7L14 1" stroke="#1B1B1B" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="search-filter relative flex items-center font-Manrope">
+      <input type="text" class="filter-input pl-[16px]" placeholder="Appareils">
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" fill="none" class="absolute right-0 mr-[16px]">
+        <path d="M1 1L7.5 7L14 1" stroke="#1B1B1B" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="search-filter relative flex items-center font-Manrope">
+      <input type="text" class="filter-input pl-[16px]" placeholder="Ustensiles">
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" fill="none" class="absolute right-0 mr-[16px]">
+        <path d="M1 1L7.5 7L14 1" stroke="#1B1B1B" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="font-Anton  font-normal">1500 recettes</div>
+  </div>
+</main>
+</body>
 </html>
