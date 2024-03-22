@@ -32,27 +32,73 @@
 </header>
 
 <main class="px-[70px] pt-[30px] bg-[#EDEDED]">
-  <div class="flex gap-60 items-center">
-    <div class="search-filter relative flex items-center font-Manrope">
-      <input type="text" class="filter-input pl-[16px]" placeholder="Ingrédients">
+
+   <!-- Filters -->
+  <div class="flex gap-16 items-center">
+    <div class="search-filter relative flex font-Manrope bg-white rounded-[11px] py-4 px-16">
+      <input type="text" class="filter-input" placeholder="Ingrédients">
       <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" fill="none" class="absolute right-0 mr-[16px]">
         <path d="M1 1L7.5 7L14 1" stroke="#1B1B1B" stroke-linecap="round"/>
       </svg>
     </div>
-    <div class="search-filter relative flex items-center font-Manrope">
-      <input type="text" class="filter-input pl-[16px]" placeholder="Appareils">
+    <div class="search-filter relative flex font-Manrope bg-white rounded-[11px] py-4 px-16">
+      <input type="text" class="filter-input" placeholder="Appareils">
       <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" fill="none" class="absolute right-0 mr-[16px]">
         <path d="M1 1L7.5 7L14 1" stroke="#1B1B1B" stroke-linecap="round"/>
       </svg>
     </div>
-    <div class="search-filter relative flex items-center font-Manrope">
-      <input type="text" class="filter-input pl-[16px]" placeholder="Ustensiles">
+    <div class="search-filter relative flex font-Manrope bg-white rounded-[11px] py-4 px-16">
+      <input type="text" class="filter-input" placeholder="Ustensiles">
       <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" fill="none" class="absolute right-0 mr-[16px]">
         <path d="M1 1L7.5 7L14 1" stroke="#1B1B1B" stroke-linecap="round"/>
       </svg>
     </div>
     <div class="font-Anton  font-normal">1500 recettes</div>
   </div>
+
+ <!-- Recipes -->
+<div class="grid grid-cols-3 justify-center mx-auto  mt-16 gap-y-16">
+  <!-- Card 1 -->
+  <div class="max-w-xs rounded-2xl overflow-hidden shadow-lg bg-white">
+    <img class="w-full h-64 object-cover" src="./img/recipes/Recette01.jpg" alt="Recipe 1">
+    <div class="px-6 py-4">
+      <div class="font-bold text-xl mb-2">Recipe 1</div>
+      <p class="text-gray-700 text-base">
+        Description of recipe 1.
+      </p>
+    </div>
+  </div>
+  <!-- Card 2 -->
+  <div class="max-w-xs rounded-2xl overflow-hidden shadow-lg bg-white">
+    <img class="w-full h-64 object-cover" src="./img/recipes/Recette02.jpg" alt="Recipe 2">
+    <div class="px-6 py-4">
+      <div class="font-bold text-xl mb-2">Recipe 2</div>
+      <p class="text-gray-700 text-base">
+        Description of recipe 2.
+      </p>
+    </div>
+  </div>
+  <!-- Card 3 -->
+  <div class="max-w-xs rounded-2xl overflow-hidden shadow-lg bg-white">
+    <img class="w-full h-64 object-cover" src="./img/recipes/Recette03.jpg" alt="Recipe 3">
+    <div class="px-6 py-4">
+      <div class="font-bold text-xl mb-2">Recipe 3</div>
+      <p class="text-gray-700 text-base">
+        Description of recipe 3.
+      </p>
+    </div>
+  </div>
+  <!-- Card 4 -->
+  <div class="max-w-xs rounded-2xl overflow-hidden shadow-lg bg-white">
+    <img class="w-full h-64 object-cover" src="./img/recipes/Recette04.jpg" alt="Recipe 3">
+    <div class="px-6 py-4">
+      <div class="font-bold text-xl mb-2">Recipe 4</div>
+      <p class="text-gray-700 text-base">
+        Description of recipe 3.
+      </p>
+    </div>
+  </div>
+</div>
 </main>
 </body>
 </html>
