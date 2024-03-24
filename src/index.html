@@ -1,104 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Les petits plats</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../dist/main.css">
-  <script src="js/index.js" defer></script>
-</head>
-<body>
-<header class="pt-[50px] px-[70px] h-[666px] bg-cover bg-center bg-[url('/src/img/header.jpeg')]">
-  <img class="w-[207px] h-[25px]" src="./img/logo.png" alt="Logo">
-  <div class="mx-auto w-[550px] mt-[170px] text-[#FFD15B] text-center font-anton text-4xl font-normal leading-normal">
-    CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES
-  </div>
-  <div class="mt-[30px] flex justify-center relative">
-    <div class="relative">
-      <input type="text" class="w-[954px] h-[72px] flex-shrink-0 rounded-[11px] bg-[#FFF] px-4" placeholder="Rechercher...">
-      <div class="absolute right-[10px] top-[10px]">
-        <div class="w-[51px] h-[52px] flex items-center justify-center bg-[#1B1B1B] rounded-[10px]">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 29" class="w-[27px] h-[28px] fill-transparent">
-            <circle cx="10" cy="10.4219" r="9.5" stroke="white"/>
-            <line x1="18.3536" y1="19.0683" x2="27.3536" y2="28.0683" stroke="white"/>
-          </svg>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Les petits plats</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../dist/main.css" />
+    <script src="js/index.js" defer></script>
+  </head>
+  <body class="bg-[#EDEDED] pb-[150px]">
+    <header
+      class="pt-[50px] px-[70px] h-[666px] bg-cover bg-center bg-[url('/src/img/header.jpeg')]"
+    >
+      <img class="w-[207px] h-[25px]" src="./img/logo.png" alt="Logo" />
+      <div
+        class="mx-auto w-[550px] mt-[170px] text-[#FFD15B] text-center font-anton text-4xl font-normal leading-normal"
+      >
+        CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES
+      </div>
+      <div class="mt-[30px] flex justify-center relative">
+        <div class="relative">
+          <input
+            type="text"
+            class="w-[954px] h-[72px] flex-shrink-0 rounded-[11px] bg-[#FFF] px-4"
+            placeholder="Rechercher une recette, un ingrédient, ..."
+          />
+          <button class="absolute right-[10px] top-[10px]">
+            <div
+              class="w-[51px] h-[52px] flex items-center justify-center bg-[#1B1B1B] rounded-[10px]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 28 29"
+                class="w-[27px] h-[28px] fill-transparent"
+              >
+                <circle cx="10" cy="10.4219" r="9.5" stroke="white" />
+                <line
+                  x1="18.3536"
+                  y1="19.0683"
+                  x2="27.3536"
+                  y2="28.0683"
+                  stroke="white"
+                />
+              </svg>
+            </div>
+          </button>
         </div>
       </div>
-    </div>
-  </div>
-</header>
+    </header>
 
-<main class="px-[70px] pt-[30px] bg-[#EDEDED]">
+    <main class="pt-[20px] mx-auto max-w-[1236px]">
+      <!-- Filters -->
+      <div class="flex justify-start items-center">
+        <div class="flex justify-start items-center gap-x-[66px] grow">
+          <div class="relative">
+            <select
+              class="appearance-none pl-[16px] pr-[94px] py-[17px] rounded-[11px]"
+            >
+              <option value="None">Ingrédients</option>
+            </select>
+            <div
+              class="pointer-events-none absolute inset-y-0 right-0 flex items-center mr-[16px]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15px"
+                height="8px"
+                viewBox="0 0 15 8"
+                fill="none"
+              >
+                <path
+                  d="M1 1L7.5 7L14 1"
+                  stroke="#1B1B1B"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+          </div>
 
-   <!-- Filters -->
-  <div class="flex gap-16 items-center">
-    <div class="search-filter relative flex font-Manrope bg-white rounded-[11px] py-4 px-16">
-      <input type="text" class="filter-input" placeholder="Ingrédients">
-      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" fill="none" class="absolute right-0 mr-[16px]">
-        <path d="M1 1L7.5 7L14 1" stroke="#1B1B1B" stroke-linecap="round"/>
-      </svg>
-    </div>
-    <div class="search-filter relative flex font-Manrope bg-white rounded-[11px] py-4 px-16">
-      <input type="text" class="filter-input" placeholder="Appareils">
-      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" fill="none" class="absolute right-0 mr-[16px]">
-        <path d="M1 1L7.5 7L14 1" stroke="#1B1B1B" stroke-linecap="round"/>
-      </svg>
-    </div>
-    <div class="search-filter relative flex font-Manrope bg-white rounded-[11px] py-4 px-16">
-      <input type="text" class="filter-input" placeholder="Ustensiles">
-      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" fill="none" class="absolute right-0 mr-[16px]">
-        <path d="M1 1L7.5 7L14 1" stroke="#1B1B1B" stroke-linecap="round"/>
-      </svg>
-    </div>
-    <div class="font-Anton  font-normal">1500 recettes</div>
-  </div>
+          <div class="relative">
+            <select
+              class="appearance-none pl-[16px] pr-[94px] py-[17px] rounded-[11px]"
+            >
+              <option value="None">Appareils</option>
+            </select>
+            <div
+              class="pointer-events-none absolute inset-y-0 right-0 flex items-center mr-[16px]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15px"
+                height="8px"
+                viewBox="0 0 15 8"
+                fill="none"
+              >
+                <path
+                  d="M1 1L7.5 7L14 1"
+                  stroke="#1B1B1B"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+          </div>
 
- <!-- Recipes -->
-<div class="grid grid-cols-3 justify-center mx-auto  mt-16 gap-y-16">
-  <!-- Card 1 -->
-  <div class="max-w-xs rounded-2xl overflow-hidden shadow-lg bg-white">
-    <img class="w-full h-64 object-cover" src="./img/recipes/Recette01.jpg" alt="Recipe 1">
-    <div class="px-6 py-4">
-      <div class="font-bold text-xl mb-2">Recipe 1</div>
-      <p class="text-gray-700 text-base">
-        Description of recipe 1.
-      </p>
-    </div>
-  </div>
-  <!-- Card 2 -->
-  <div class="max-w-xs rounded-2xl overflow-hidden shadow-lg bg-white">
-    <img class="w-full h-64 object-cover" src="./img/recipes/Recette02.jpg" alt="Recipe 2">
-    <div class="px-6 py-4">
-      <div class="font-bold text-xl mb-2">Recipe 2</div>
-      <p class="text-gray-700 text-base">
-        Description of recipe 2.
-      </p>
-    </div>
-  </div>
-  <!-- Card 3 -->
-  <div class="max-w-xs rounded-2xl overflow-hidden shadow-lg bg-white">
-    <img class="w-full h-64 object-cover" src="./img/recipes/Recette03.jpg" alt="Recipe 3">
-    <div class="px-6 py-4">
-      <div class="font-bold text-xl mb-2">Recipe 3</div>
-      <p class="text-gray-700 text-base">
-        Description of recipe 3.
-      </p>
-    </div>
-  </div>
-  <!-- Card 4 -->
-  <div class="max-w-xs rounded-2xl overflow-hidden shadow-lg bg-white">
-    <img class="w-full h-64 object-cover" src="./img/recipes/Recette04.jpg" alt="Recipe 3">
-    <div class="px-6 py-4">
-      <div class="font-bold text-xl mb-2">Recipe 4</div>
-      <p class="text-gray-700 text-base">
-        Description of recipe 3.
-      </p>
-    </div>
-  </div>
-</div>
-</main>
-</body>
+          <div class="relative">
+            <select
+              class="appearance-none pl-[16px] pr-[94px] py-[17px] rounded-[11px]"
+            >
+              <option value="None">Ustensiles</option>
+            </select>
+            <div
+              class="pointer-events-none absolute inset-y-0 right-0 flex items-center mr-[16px]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15px"
+                height="8px"
+                viewBox="0 0 15 8"
+                fill="none"
+              >
+                <path
+                  d="M1 1L7.5 7L14 1"
+                  stroke="#1B1B1B"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="font-anton text-[21px]">1500 recettes</div>
+      </div>
+
+      <!-- Recipes -->
+      <ul class="mt-[55px] flex justify-center items-center">
+        <li class="w-[380px] rounded-2xl shadow-lg bg-white">
+          <img
+            class="w-full h-[253px] object-cover rounded-t-2xl"
+            src="./img/recipes/Recette01.jpg"
+            alt="Recipe 1"
+          />
+          <div class="pt-[32px] pb-[60px] px-[25px]">
+            <div class="font-anton text-[18px]">Recipe 1</div>
+            <div class="mt-[29px] text-[12px] text-grey">RECETTE</div>
+            <div class="mt-[15px]">
+              Mettre les glaçons à votre goût dans le blender, Ajouter le lait
+              la crème de coco, le jus de 2 citrons et le sucre ensemble. Mixer
+              jusqu'à obtenir la consistance désirée.
+            </div>
+
+            <div class="mt-[32px] text-[12px] text-grey">Ingrédients</div>
+
+            <ul class="mt-[15px] grid grid-cols-2 gap-y-[21px]">
+              <li>
+                <div class="font-medium">Lait de coco</div>
+                <div class="text-grey">400ml</div>
+              </li>
+
+              <li>
+                <div class="font-medium">Lait de coco</div>
+                <div class="text-grey">400ml</div>
+              </li>
+
+              <li>
+                <div class="font-medium">Lait de coco</div>
+                <div class="text-grey">400ml</div>
+              </li>
+
+              <li>
+                <div class="font-medium">Lait de coco</div>
+                <div class="text-grey">400ml</div>
+              </li>
+
+              <li>
+                <div class="font-medium">Lait de coco</div>
+                <div class="text-grey">400ml</div>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </main>
+  </body>
 </html>

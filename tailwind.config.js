@@ -5,6 +5,10 @@ module.exports = {
     extend: {
       fontFamily: {
         anton: ["Anton"],
+        manrope: ["Manrope"],
+      },
+      colors: {
+        grey: "#7A7A7A",
       },
     },
   },
