@@ -11,6 +11,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../dist/main.css" />
+    <script src="js/recipeTemplate.js" defer></script>
     <script src="js/index.js" defer></script>
   </head>
   <body class="bg-[#EDEDED] pb-[150px]">
@@ -134,57 +135,11 @@
           </div>
         </div>
 
-        <div class="font-anton text-[21px]">1500 recettes</div>
+        <div class="recipe-counter font-anton text-[21px]">1500 recettes</div>
       </div>
 
       <!-- Recipes -->
-      <ul class="mt-[55px] flex justify-center items-center">
-        <li class="w-[380px] rounded-2xl shadow-lg bg-white">
-          <img
-            class="w-full h-[253px] object-cover rounded-t-2xl"
-            src="./img/recipes/Recette01.jpg"
-            alt="Recipe 1"
-          />
-          <div class="pt-[32px] pb-[60px] px-[25px]">
-            <div class="font-anton text-[18px]">Recipe 1</div>
-            <div class="mt-[29px] text-[12px] text-grey">RECETTE</div>
-            <div class="mt-[15px]">
-              Mettre les glaçons à votre goût dans le blender, Ajouter le lait
-              la crème de coco, le jus de 2 citrons et le sucre ensemble. Mixer
-              jusqu'à obtenir la consistance désirée.
-            </div>
-
-            <div class="mt-[32px] text-[12px] text-grey">Ingrédients</div>
-
-            <ul class="mt-[15px] grid grid-cols-2 gap-y-[21px]">
-              <li>
-                <div class="font-medium">Lait de coco</div>
-                <div class="text-grey">400ml</div>
-              </li>
-
-              <li>
-                <div class="font-medium">Lait de coco</div>
-                <div class="text-grey">400ml</div>
-              </li>
-
-              <li>
-                <div class="font-medium">Lait de coco</div>
-                <div class="text-grey">400ml</div>
-              </li>
-
-              <li>
-                <div class="font-medium">Lait de coco</div>
-                <div class="text-grey">400ml</div>
-              </li>
-
-              <li>
-                <div class="font-medium">Lait de coco</div>
-                <div class="text-grey">400ml</div>
-              </li>
-            </ul>
-          </div>
-        </li>
-      </ul>
+      <ul class="recipes-list mt-[55px] grid grid-cols-3 gap-x-[48px] gap-y-[66px]"></ul>
     </main>
   </body>
 </html>
