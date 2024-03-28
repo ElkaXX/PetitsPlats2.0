@@ -1,51 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Les petits plats</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@200..800&display=swap"
       rel="stylesheet"
-    >
-    <link rel="stylesheet" href="../dist/main.css">
-    <script src="js/recipeTemplate.js" defer></script>
+    />
+    <link rel="stylesheet" href="../dist/main.css" />
+    <script src="js/recipe.js" defer></script>
+    <script src="js/search.js" defer></script>
     <script src="js/index.js" defer></script>
   </head>
   <body class="bg-[#EDEDED] pb-[150px]">
     <header
       class="pt-[50px] px-[70px] h-[666px] bg-cover bg-center bg-[url('/src/img/header.jpeg')]"
     >
-      <img class="w-[207px] h-[25px]" src="./img/logo.png" alt="Logo">
+      <img class="w-[207px] h-[25px]" src="./img/logo.png" alt="Logo" />
       <div
         class="mx-auto w-[550px] mt-[170px] text-[#FFD15B] text-center font-anton text-4xl font-normal leading-normal"
       >
         CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES
       </div>
       <div class="mt-[30px] flex justify-center relative">
-        <div class="relative">
+        <div class="search relative">
           <input
             type="text"
-            class="w-[954px] h-[72px] flex-shrink-0 rounded-[11px] bg-[#FFF] px-4"
+            class="search__input w-[954px] h-[72px] flex-shrink-0 rounded-[11px] bg-[#FFF] px-4"
             placeholder="Rechercher une recette, un ingrédient, ..."
+          />
+
+          <button
+            class="search__cross-btn absolute right-[85px] top-[27px] hidden"
           >
-          <button class="absolute right-[10px] top-[10px] w-[51px] h-[52px] flex items-center justify-center bg-[#1B1B1B] rounded-[10px]">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 28 29"
-                class="w-[27px] h-[28px] fill-transparent"
-              >
-                <circle cx="10" cy="10.4219" r="9.5" stroke="white"/>
-                <line
-                  x1="18.3536"
-                  y1="19.0683"
-                  x2="27.3536"
-                  y2="28.0683"
-                  stroke="white"
-                />
-              </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17"
+              height="17"
+              viewBox="0 0 17 17"
+              fill="none"
+            >
+              <path
+                d="M15 15L8.5 8.5M8.5 8.5L2 2M8.5 8.5L15 2M8.5 8.5L2 15"
+                stroke="#7A7A7A"
+                stroke-width="2.16667"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+
+          <button
+            class="search__btn group absolute right-[10px] top-[10px] w-[51px] h-[52px] flex items-center justify-center bg-[#1B1B1B] hover:bg-[#FFD15B] rounded-[10px]"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              viewBox="0 0 28 28"
+              fill="none"
+              class="stroke-white group-hover:stroke-black"
+            >
+              <circle cx="10" cy="10" r="9.5" />
+              <line
+                x1="18.3536"
+                y1="18.6464"
+                x2="27.3536"
+                y2="27.6464"
+              />
+            </svg>
           </button>
         </div>
       </div>
@@ -135,7 +161,9 @@
       </div>
 
       <!-- Recipes -->
-      <ul class="recipes-list mt-[55px] grid grid-cols-3 gap-x-[48px] gap-y-[66px]"></ul>
+      <ul
+        class="recipe-list mt-[55px] grid grid-cols-3 gap-x-[48px] gap-y-[66px]"
+      ></ul>
     </main>
   </body>
 </html>

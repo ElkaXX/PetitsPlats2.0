@@ -1,3 +1,19 @@
+const recipeListDOM = document.querySelector(".recipe-list");
+const recipeCounterDOM = document.querySelector(".recipe-counter");
+
+const recipeDataList = [];
+const recipeFilteredDataList = [];
+
+async function getRecipesAsync() {
+  try {
+    const response = await fetch("data/recipes.json");
+    return response.json();
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
+
 function getRecipeHtml(recipe) {
   const img = document.createElement("img");
   img.classList.value = "w-full h-[253px] object-cover rounded-t-2xl";
@@ -32,7 +48,7 @@ function getRecipeHtml(recipe) {
 
     const ingredientValue = document.createElement("div");
     ingredientValue.classList.value = "text-grey";
-    ingredientValue.textContent = getCorrectIngredientValue(ingredient);
+    ingredientValue.textContent = getRecipeCorrectIngredientValue(ingredient);
 
     ingredientItem.appendChild(ingredientName);
     ingredientItem.appendChild(ingredientValue);
@@ -48,15 +64,35 @@ function getRecipeHtml(recipe) {
   content.appendChild(ingredientsHeader);
   content.appendChild(ingredients);
 
+  const time = document.createElement("div");
+  time.classList.value =
+    "absolute top-[21px] right-[22px] bg-[#FFD15B] border border-solid border-0 rounded-[14px] px-[15px] py-[5px] font-manrope text-[12px]";
+  time.textContent = `${recipe.time}min`;
+
   const li = document.createElement("li");
-  li.classList.value = "w-[380px] rounded-2xl shadow-lg bg-white";
+  li.classList.value = "relative w-[380px] rounded-2xl shadow-lg bg-white";
   li.appendChild(img);
   li.appendChild(content);
+  li.appendChild(time);
 
   return li;
 }
 
-function getCorrectIngredientValue(ingredient) {
+function getRecipeFilterContent(recipe) {
+  let content;
+
+  content = recipe.name.toLowerCase();
+  content += " " + recipe.description.toLowerCase();
+  content += " " + recipe.appliance.toLowerCase();
+  content += " " + recipe.ustensils.map((item) => item.toLowerCase()).join(" ");
+  content +=
+    " " +
+    recipe.ingredients.map((item) => item.ingredient.toLowerCase()).join(" ");
+
+  return content;
+}
+
+function getRecipeCorrectIngredientValue(ingredient) {
   const quantity = ingredient.quantity?.toString();
   const unit = ingredient.unit?.toLowerCase();
 
@@ -73,4 +109,21 @@ function getCorrectIngredientValue(ingredient) {
   }
 
   return quantity + " " + ingredient.unit;
+}
+
+async function initRecipeAsync() {
+  const recipes = await getRecipesAsync();
+
+  recipeCounterDOM.textContent = `${recipes.length} recettes`;
+
+  recipes
+    .map((recipe) => ({
+      data: recipe,
+      html: getRecipeHtml(recipe),
+      content: getRecipeFilterContent(recipe),
+    }))
+    .forEach((recipeData) => {
+      recipeDataList.push(recipeData);
+      recipeListDOM.appendChild(recipeData.html);
+    });
 }

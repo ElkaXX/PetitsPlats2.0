@@ -561,6 +561,10 @@ video {
   bottom: 0px;
 }
 
+.bottom-\[20px\] {
+  bottom: 20px;
+}
+
 .right-0 {
   right: 0px;
 }
@@ -571,6 +575,22 @@ video {
 
 .top-\[10px\] {
   top: 10px;
+}
+
+.right-\[22px\] {
+  right: 22px;
+}
+
+.top-\[21px\] {
+  top: 21px;
+}
+
+.right-\[85px\] {
+  right: 85px;
+}
+
+.top-\[27px\] {
+  top: 27px;
 }
 
 .mx-auto {
@@ -612,6 +632,10 @@ video {
 
 .grid {
   display: grid;
+}
+
+.hidden {
+  display: none;
 }
 
 .h-\[253px\] {
@@ -734,9 +758,29 @@ video {
   border-radius: 11px;
 }
 
+.rounded-\[14px\] {
+  border-radius: 14px;
+}
+
+.rounded-\[21px\] {
+  border-radius: 21px;
+}
+
 .rounded-t-2xl {
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
+}
+
+.border {
+  border-width: 1px;
+}
+
+.border-0 {
+  border-width: 0px;
+}
+
+.border-solid {
+  border-style: solid;
 }
 
 .bg-\[\#1B1B1B\] {
@@ -747,6 +791,11 @@ video {
 .bg-\[\#EDEDED\] {
   --tw-bg-opacity: 1;
   background-color: rgb(237 237 237 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#FFD15B\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 209 91 / var(--tw-bg-opacity));
 }
 
 .bg-\[\#FFF\] {
@@ -775,6 +824,14 @@ video {
   fill: transparent;
 }
 
+.stroke-white {
+  stroke: #fff;
+}
+
+.stroke-cyan-500 {
+  stroke: #06b6d4;
+}
+
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -783,6 +840,11 @@ video {
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
+}
+
+.px-\[15px\] {
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .px-\[25px\] {
@@ -798,6 +860,11 @@ video {
 .py-\[17px\] {
   padding-top: 17px;
   padding-bottom: 17px;
+}
+
+.py-\[5px\] {
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .pb-\[150px\] {
@@ -834,6 +901,10 @@ video {
 
 .font-anton {
   font-family: Anton;
+}
+
+.font-manrope {
+  font-family: Manrope;
 }
 
 .text-4xl {
@@ -884,4 +955,17 @@ video {
 * {
   font-family: "Manrope";
   font-size: 14px;
+}
+
+.hover\:bg-\[\#FFD15B\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 209 91 / var(--tw-bg-opacity));
+}
+
+.group:hover .group-hover\:stroke-black {
+  stroke: #000;
+}
+
+.group:hover .group-hover\:stroke-white {
+  stroke: #fff;
 }
