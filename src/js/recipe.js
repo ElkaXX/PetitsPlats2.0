@@ -1,5 +1,6 @@
 const recipeListDOM = document.querySelector(".recipe-list");
 const recipeCounterDOM = document.querySelector(".recipe-counter");
+const recipeNoRecipesDOM = document.querySelector(".no-recipes");
 
 const recipeDataList = [];
 const recipeFilteredDataList = [];
@@ -111,10 +112,37 @@ function getRecipeCorrectIngredientValue(ingredient) {
   return quantity + " " + ingredient.unit;
 }
 
+function applyFiltering(recipeDataList) {
+  recipeFilteredDataList.splice(0, recipeFilteredDataList.length);
+
+  recipeDataList.forEach((recipeData) => {
+    recipeFilteredDataList.push(recipeData);
+  });
+
+  updateRecipeListDOM();
+}
+
+function updateRecipeListDOM() {
+  recipeListDOM.innerHTML = "";
+  recipeCounterDOM.textContent = `${recipeFilteredDataList.length} recettes`;
+
+  if (recipeFilteredDataList.length === 0) {
+    recipeListDOM.classList.add("hidden");
+    recipeNoRecipesDOM.classList.remove("hidden");
+    recipeNoRecipesDOM.textContent = `Aucune recette ne contient '${searchInputDOM.value}' vous pouvez chercher «
+    tarte aux pommes », « poisson », etc.`;
+  } else {
+    recipeListDOM.classList.remove("hidden");
+    recipeNoRecipesDOM.classList.add("hidden");
+  }
+
+  recipeFilteredDataList.forEach((recipeData) => {
+    recipeListDOM.appendChild(recipeData.html);
+  });
+}
+
 async function initRecipeAsync() {
   const recipes = await getRecipesAsync();
-
-  recipeCounterDOM.textContent = `${recipes.length} recettes`;
 
   recipes
     .map((recipe) => ({
@@ -124,6 +152,8 @@ async function initRecipeAsync() {
     }))
     .forEach((recipeData) => {
       recipeDataList.push(recipeData);
-      recipeListDOM.appendChild(recipeData.html);
+      recipeFilteredDataList.push(recipeData);
     });
+
+  updateRecipeListDOM();
 }

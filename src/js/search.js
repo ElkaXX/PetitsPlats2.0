@@ -23,7 +23,22 @@ function handleSearchCrossBtnClick() {
 }
 
 function handleSearchBtnClick() {
-    
+  const value = searchInputDOM.value.toLowerCase();
+
+  if (value.length === 0) {
+    applyFiltering(recipeDataList);
+    return;
+  }
+
+  if (value.length < 3) {
+    return;
+  }
+
+  const filteredData = recipeDataList.filter((recipeData) =>
+    recipeData.content.includes(value)
+  );
+
+  applyFiltering(filteredData);
 }
 
 function initSearch() {
