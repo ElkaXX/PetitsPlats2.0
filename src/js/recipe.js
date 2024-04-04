@@ -118,8 +118,6 @@ function applyFiltering(recipeDataList) {
   recipeDataList.forEach((recipeData) => {
     recipeFilteredDataList.push(recipeData);
   });
-
-  updateRecipeListDOM();
 }
 
 function updateRecipeListDOM() {

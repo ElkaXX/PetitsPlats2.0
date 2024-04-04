@@ -20,9 +20,14 @@ function handleSearchInput() {
 function handleSearchCrossBtnClick() {
   searchInputDOM.value = "";
   searchCrossBtnDOM.classList.add("hidden");
+  handleSearchBtnClick();
 }
 
 function handleSearchBtnClick() {
+  searchHandleInputWithTags();
+}
+
+function searchHandleSearchInput() {
   const value = searchInputDOM.value.toLowerCase();
 
   if (value.length === 0) {
@@ -39,6 +44,31 @@ function handleSearchBtnClick() {
   );
 
   applyFiltering(filteredData);
+}
+
+function searchHandleTags() {
+  const ingredientTags = [...filtersSelectedIngredients];
+  const filtredData = recipeFilteredDataList.filter((recipeData) => {
+    if(ingredientTags.length == 0) {
+      return true;
+    }
+
+    const recipeIngredients = recipeData.data.ingredients.map(
+      (ingredient) => ingredient.ingredient.toLowerCase()
+    );
+
+    return ingredientTags.every(ingredient => recipeIngredients.includes(ingredient.toLowerCase()));
+  });
+
+  applyFiltering(filtredData);
+}
+
+function searchHandleInputWithTags() {
+  searchHandleSearchInput();
+  searchHandleTags();
+  filtersUpdateTags();
+  updateRecipeListDOM();
+  filtersUpdateDOM();
 }
 
 function initSearch() {

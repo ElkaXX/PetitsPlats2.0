@@ -502,7 +502,7 @@
     "ingredients": [
       { "ingredient": "Tomate", "quantity": 6 },
       { "ingredient": "Pommes de terre", "quantity": 1 },
-      { "ingredient": "Huile d'olives" },
+      { "ingredient": "Huile d'olive" },
       { "ingredient": "Oignon", "quantity": 1 },
       { "ingredient": "Ail", "quantity": 1, "unit": "gousses" }
     ],
