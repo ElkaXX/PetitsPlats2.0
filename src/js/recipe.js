@@ -145,6 +145,10 @@ async function initRecipeAsync() {
   recipes
     .map((recipe) => ({
       data: recipe,
+      ingredients: recipe.ingredients.map((ingredient) => ({
+        name: ingredient.ingredient,
+        key: ingredient.ingredient.toLowerCase(),
+      })),
       html: getRecipeHtml(recipe),
       content: getRecipeFilterContent(recipe),
     }))

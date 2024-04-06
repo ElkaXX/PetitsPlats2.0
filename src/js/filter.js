@@ -11,9 +11,9 @@ const filtersUstensils = new Map();
 
 const filtersFilteredIngredients = new Map();
 
-const filtersSelectedIngredients = new Set();
-const filtersSelectedAppliances = new Set();
-const filtersSelectedUstensils = new Set();
+const filtersSelectedIngredients = new Map();
+const filtersSelectedAppliances = new Map();
+const filtersSelectedUstensils = new Map();
 
 function initFilters() {
   filtersPopulate();
@@ -34,17 +34,22 @@ function initFilters() {
 
 function filtersPopulate() {
   recipeDataList.forEach((recipeData) => {
-    const data = recipeData.data;
-
-    data.ingredients.forEach((ingredient) => {
-      const value = ingredient.ingredient;
-      if (!filtersIngredients.has(value)) {
+    recipeData.ingredients.forEach((ingredient) => {
+      if (!filtersIngredients.has(ingredient.key)) {
         const itemData = {
-          html: filstersGetItemHTML(value, filtersSelectedIngredients),
-          selectedHtml: filtersGetSelectedItemHTML(value),
+          html: filstersGetItemHTML(
+            ingredient.key,
+            ingredient.name,
+            filtersSelectedIngredients
+          ),
+          selectedHtml: filtersGetSelectedItemHTML(
+            ingredient.key,
+            ingredient.name,
+            filtersSelectedIngredients
+          ),
         };
-        filtersIngredients.set(value, itemData);
-        filtersFilteredIngredients.set(value, itemData);
+        filtersIngredients.set(ingredient.key, itemData);
+        filtersFilteredIngredients.set(ingredient.key, itemData);
       }
     });
 
@@ -66,11 +71,9 @@ function filtersPopulate() {
 function filtersUpdateTags() {
   filtersFilteredIngredients.clear();
   recipeFilteredDataList.forEach((recipeData) => {
-    const data = recipeData.data;
-    data.ingredients.forEach((ingredient) => {
-      const key = ingredient.ingredient;
-      const value = filtersIngredients.get(key);
-      filtersFilteredIngredients.set(key, value);
+    recipeData.ingredients.forEach((ingredient) => {
+      const value = filtersIngredients.get(ingredient.key);
+      filtersFilteredIngredients.set(ingredient.key, value);
     });
   });
 }
@@ -82,17 +85,26 @@ function filtersUpdateDOM() {
   });
 }
 
-function filstersGetItemHTML(filterValue, selectedList) {
+function filtersUpdateSelectedDOM() {
+  filtersSelectedFiltersListDOM.innerHTML = "";
+
+  filtersSelectedIngredients.keys().forEach((ingredientKey) => {
+    const item = filtersIngredients.get(ingredientKey);
+    filtersSelectedFiltersListDOM.appendChild(item.selectedHtml);
+  });
+}
+
+function filstersGetItemHTML(filterKey, filterValue, selectedList) {
   const li = document.createElement("li");
   li.classList.value =
     "px-[16px] py-[9px] w-[100%] h-[100%] cursor-pointer hover:bg-[#FFD15B] transition-colors duration-200 ease-in-out";
   li.textContent = filterValue;
 
   li.addEventListener("click", () => {
-    if (selectedList.has(filterValue)) {
-      selectedList.delete(filterValue);
+    if (selectedList.has(filterKey)) {
+      selectedList.delete(filterKey);
     } else {
-      selectedList.add(filterValue);
+      selectedList.set(filterKey, filterValue);
     }
 
     searchHandleInputWithTags();
@@ -101,20 +113,28 @@ function filstersGetItemHTML(filterValue, selectedList) {
   return li;
 }
 
-function filtersGetSelectedItemHTML(value) {
+function filtersGetSelectedItemHTML(filterKey, filterValue, selectedList) {
   const li = document.createElement("li");
   li.classList.value =
     "py-[17px] px-[18px] bg-[#FFD15B] rounded-[10px] flex justify-start items-center gap-x-[30px]";
 
   const text = document.createElement("div");
-  text.textContent = value;
+  text.textContent = filterValue;
 
   const img = document.createElement("img");
   img.src = "img/selected-filter-cross.svg";
-  img.alt = "cross button";
+  img.alt = "cross";
+
+  const crossBtn = document.createElement("button");
+  crossBtn.appendChild(img);
+
+  crossBtn.addEventListener("click", () => {
+    selectedList.delete(filterKey);
+    searchHandleInputWithTags();
+  });
 
   li.appendChild(text);
-  li.appendChild(img);
+  li.appendChild(crossBtn);
 
   return li;
 }

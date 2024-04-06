@@ -47,17 +47,17 @@ function searchHandleSearchInput() {
 }
 
 function searchHandleTags() {
-  const ingredientTags = [...filtersSelectedIngredients];
+  const tagKeys = [...filtersSelectedIngredients.keys()];
   const filtredData = recipeFilteredDataList.filter((recipeData) => {
-    if(ingredientTags.length == 0) {
+    if (tagKeys.length == 0) {
       return true;
     }
 
-    const recipeIngredients = recipeData.data.ingredients.map(
-      (ingredient) => ingredient.ingredient.toLowerCase()
+    return tagKeys.every((ingredientKey) =>
+      recipeData.ingredients
+        .map((ingredient) => ingredient.key)
+        .includes(ingredientKey)
     );
-
-    return ingredientTags.every(ingredient => recipeIngredients.includes(ingredient.toLowerCase()));
   });
 
   applyFiltering(filtredData);
@@ -69,6 +69,7 @@ function searchHandleInputWithTags() {
   filtersUpdateTags();
   updateRecipeListDOM();
   filtersUpdateDOM();
+  filtersUpdateSelectedDOM();
 }
 
 function initSearch() {
