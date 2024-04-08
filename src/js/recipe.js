@@ -149,6 +149,16 @@ async function initRecipeAsync() {
         name: ingredient.ingredient,
         key: ingredient.ingredient.toLowerCase(),
       })),
+      appliances: [
+        {
+          name: recipe.appliance,
+          key: recipe.appliance.toLowerCase(),
+        },
+      ],
+      ustensils: recipe.ustensils.map((ustensil) => ({
+        name: ustensil,
+        key: ustensil.toLowerCase(),
+      })),
       html: getRecipeHtml(recipe),
       content: getRecipeFilterContent(recipe),
     }))

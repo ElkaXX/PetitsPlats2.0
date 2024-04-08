@@ -47,17 +47,36 @@ function searchHandleSearchInput() {
 }
 
 function searchHandleTags() {
-  const tagKeys = [...filtersSelectedIngredients.keys()];
+  const ingredientTagKeys = [...filtersSelectedIngredients.keys()];
+  const appliancesTagKeys = [...filtersSelectedAppliances.keys()];
+  const ustensilsTagKeys = [...filtersSelectedUstensils.keys()];
+
   const filtredData = recipeFilteredDataList.filter((recipeData) => {
-    if (tagKeys.length == 0) {
+    if (
+      ingredientTagKeys.length == 0 &&
+      appliancesTagKeys.length == 0 &&
+      ustensilsTagKeys.length == 0
+    ) {
       return true;
     }
 
-    return tagKeys.every((ingredientKey) =>
+    const ingredientsExist = ingredientTagKeys.every((ingredientKey) =>
       recipeData.ingredients
         .map((ingredient) => ingredient.key)
         .includes(ingredientKey)
     );
+
+    const appliancesExist = appliancesTagKeys.every((applianceKey) =>
+      recipeData.appliances
+        .map((appliance) => appliance.key)
+        .includes(applianceKey)
+    );
+
+    const ustensilsExist = ustensilsTagKeys.every((ustensilKey) =>
+      recipeData.ustensils.map((ustensil) => ustensil.key).includes(ustensilKey)
+    );
+
+    return ingredientsExist && appliancesExist && ustensilsExist;
   });
 
   applyFiltering(filtredData);
@@ -66,10 +85,11 @@ function searchHandleTags() {
 function searchHandleInputWithTags() {
   searchHandleSearchInput();
   searchHandleTags();
-  filtersUpdateTags();
+  filtersUpdateTagsAll();
+  filtersSortTagsAll();
   updateRecipeListDOM();
-  filtersUpdateDOM();
-  filtersUpdateSelectedDOM();
+  filtersUpdateAllDOM();
+  filtersUpdateSelectedAllDOM();
 }
 
 function initSearch() {
