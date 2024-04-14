@@ -4,16 +4,20 @@ const searchBtnDOM = searchDOM.querySelector(".search__btn");
 const searchCrossBtnDOM = searchDOM.querySelector(".search__cross-btn");
 
 function handleSearchInput() {
-  const valueLength = searchInputDOM.value.length;
+  handleSearchInputInternal(searchInputDOM, searchCrossBtnDOM);
+}
+
+function handleSearchInputInternal(searchInput, searchCrossBtn) {
+  const valueLength = searchInput.value.length;
 
   if (valueLength > 1) {
     return;
   }
 
   if (valueLength > 0) {
-    searchCrossBtnDOM.classList.remove("hidden");
+    searchCrossBtn.classList.remove("hidden");
   } else {
-    searchCrossBtnDOM.classList.add("hidden");
+    searchCrossBtn.classList.add("hidden");
   }
 }
 

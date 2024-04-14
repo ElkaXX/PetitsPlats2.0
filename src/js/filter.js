@@ -9,6 +9,30 @@ const ingredientsFilterListDOM = ingredientsFilterDOM.querySelector("ul");
 const appliancesFilterListDOM = appliancesFilterDOM.querySelector("ul");
 const ustensilsFilterListDOM = ustensilsFilterDOM.querySelector("ul");
 
+const ingredientsFilterSearch = ingredientsFilterDOM.querySelector(".search");
+const ingredientsFilterSearchInput =
+  ingredientsFilterSearch.querySelector(".search-input");
+const ingredientsFilterSearchCross =
+  ingredientsFilterSearch.querySelector(".cross-btn");
+const ingredientsFilterSearchBtn =
+  ingredientsFilterSearch.querySelector(".search-btn");
+
+const appliancesFilterSearch = appliancesFilterDOM.querySelector(".search");
+const appliancesFilterSearchInput =
+  appliancesFilterSearch.querySelector(".search-input");
+const appliancesFilterSearchCross =
+  appliancesFilterSearch.querySelector(".cross-btn");
+const appliancesFilterSearchBtn =
+  appliancesFilterSearch.querySelector(".search-btn");
+
+const ustensilsFilterSearch = ustensilsFilterDOM.querySelector(".search");
+const ustensilsFilterSearchInput =
+  ustensilsFilterSearch.querySelector(".search-input");
+const ustensilsFilterSearchCross =
+  ustensilsFilterSearch.querySelector(".cross-btn");
+const ustensilsFilterSearchBtn =
+  ustensilsFilterSearch.querySelector(".search-btn");
+
 const filters = [ingredientsFilterDOM, appliancesFilterDOM, ustensilsFilterDOM];
 const filtersIngredients = new Map();
 const filtersAppliances = new Map();
@@ -23,6 +47,7 @@ const filtersSelectedAppliances = new Map();
 const filtersSelectedUstensils = new Map();
 
 function initFilters() {
+  filtersInitSearch();
   filtersPopulateAll();
   filtersSortTagsAll();
   filtersUpdateAllDOM();
@@ -37,6 +62,44 @@ function initFilters() {
     filters.forEach((filter) => {
       filter.classList.remove("open");
     });
+  });
+}
+
+function filtersInitSearch() {
+  filtersInitFilterSearch(
+    ingredientsFilterSearchInput,
+    ingredientsFilterSearchCross,
+    ingredientsFilterSearchBtn
+  );
+  filtersInitFilterSearch(
+    appliancesFilterSearchInput,
+    appliancesFilterSearchCross,
+    appliancesFilterSearchBtn
+  );
+  filtersInitFilterSearch(
+    ustensilsFilterSearchInput,
+    ustensilsFilterSearchCross,
+    ustensilsFilterSearchBtn
+  );
+}
+
+function filtersInitFilterSearch(input, crossBtn, searchBtn) {
+  input.addEventListener("input", () =>
+    handleSearchInputInternal(input, crossBtn)
+  );
+  crossBtn.addEventListener("click", () => {
+    input.value = "";
+    crossBtn.classList.add("hidden");
+
+    filtersUpdateTagsAll();
+    filtersSortTagsAll();
+    filtersUpdateAllDOM();
+  });
+
+  searchBtn.addEventListener("click", () => {
+    filtersUpdateTagsAll();
+    filtersSortTagsAll();
+    filtersUpdateAllDOM();
   });
 }
 
@@ -71,17 +134,20 @@ function filtersUpdateTagsAll() {
     filtersUpdateTags(
       recipeData.ingredients,
       filtersIngredients,
-      filtersFilteredIngredients
+      filtersFilteredIngredients,
+      ingredientsFilterSearchInput
     );
     filtersUpdateTags(
       recipeData.appliances,
       filtersAppliances,
-      filtersFilteredAppliances
+      filtersFilteredAppliances,
+      appliancesFilterSearchInput
     );
     filtersUpdateTags(
       recipeData.ustensils,
       filtersUstensils,
-      filtersFilteredUstensils
+      filtersFilteredUstensils,
+      ustensilsFilterSearchInput
     );
   });
 }
@@ -148,10 +214,19 @@ function filtersPopulate(
   });
 }
 
-function filtersUpdateTags(recipeFilterList, filterList, filteredList) {
+function filtersUpdateTags(
+  recipeFilterList,
+  filterList,
+  filteredList,
+  filterSearchInput
+) {
   recipeFilterList.forEach((filter) => {
+    const searchValue = filterSearchInput.value;
     const value = filterList.get(filter.key);
-    filteredList.set(filter.key, value);
+
+    if (searchValue.length === 0 || filter.key.includes(searchValue)) {
+      filteredList.set(filter.key, value);
+    }
   });
 }
 

@@ -1,0 +1,67 @@
+<svg
+    width="8"
+    height="8"
+    viewBox="0 0 8 8"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <rect width="8" height="8" fill="white" />
+    <g id="Components">
+        <path
+            d="M-2172 -994C-2172 -995.105 -2171.1 -996 -2170 -996H926C927.104 -996 928 -995.105 928 -994V1088C928 1089.1 927.104 1090 926 1090H-2170C-2171.1 1090 -2172 1089.1 -2172 1088V-994Z"
+            fill="#E5E5E5"
+        />
+        <path
+            d="M-2170 -995H926V-997H-2170V-995ZM927 -994V1088H929V-994H927ZM926 1089H-2170V1091H926V1089ZM-2171 1088V-994H-2173V1088H-2171ZM-2170 1089C-2170.55 1089 -2171 1088.55 -2171 1088H-2173C-2173 1089.66 -2171.66 1091 -2170 1091V1089ZM927 1088C927 1088.55 926.552 1089 926 1089V1091C927.657 1091 929 1089.66 929 1088H927ZM926 -995C926.552 -995 927 -994.552 927 -994H929C929 -995.657 927.657 -997 926 -997V-995ZM-2170 -997C-2171.66 -997 -2173 -995.657 -2173 -994H-2171C-2171 -994.552 -2170.55 -995 -2170 -995V-997Z"
+            fill="black"
+            fill-opacity="0.1"
+        />
+        <g id="Ingr&#195;&#169;dients">
+            <rect
+                x="-596.5"
+                y="-86.5"
+                width="894"
+                height="453"
+                rx="4.5"
+                stroke="#9747FF"
+                stroke-dasharray="10 5"
+            />
+            <g id="Property 1=Variant3">
+                <rect
+                    x="-137"
+                    y="-67"
+                    width="195"
+                    height="141"
+                    rx="11"
+                    fill="white"
+                />
+                <g id="Group 7">
+                    <rect
+                        id="Rectangle 9"
+                        x="-137"
+                        y="-67"
+                        width="195"
+                        height="100"
+                        fill="white"
+                    />
+                    <rect
+                        id="Rectangle 8"
+                        x="-120.5"
+                        y="-13.5"
+                        width="162"
+                        height="35"
+                        rx="1.5"
+                        stroke="#C6C6C6"
+                    />
+                    <path
+                        id="Vector"
+                        d="M7 7L4 4M4 4L1 1M4 4L7 1M4 4L1 7"
+                        stroke="#7A7A7A"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
