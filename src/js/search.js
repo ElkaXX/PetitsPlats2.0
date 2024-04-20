@@ -43,9 +43,24 @@ function searchHandleSearchInput() {
     return;
   }
 
-  const filteredData = recipeDataList.filter((recipeData) =>
-    recipeData.content.includes(value)
-  );
+  const filteredData = [];
+
+  for (let i = 0; i < recipeDataList.length; i++) {
+    const item = recipeDataList[i];
+    const content = item.content;
+    let found = false;
+
+    for (let j = 0; j <= content.length - value.length; j++) {
+      if (content.substring(j, j + value.length) === value) {
+        found = true;
+        break;
+      }
+    }
+
+    if (found) {
+      filteredData.push(item);
+    }
+  }
 
   applyFiltering(filteredData);
 }
