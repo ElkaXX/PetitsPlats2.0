@@ -71,7 +71,7 @@ function getRecipeHtml(recipe) {
   time.textContent = `${recipe.time}min`;
 
   const li = document.createElement("li");
-  li.classList.value = "relative w-[380px] rounded-2xl shadow-lg bg-white";
+  li.classList.value = "relative w-[310px] sm:w-[380px] rounded-2xl shadow-lg bg-white";
   li.appendChild(img);
   li.appendChild(content);
   li.appendChild(time);

@@ -10,7 +10,7 @@ function handleSearchInput() {
 function handleSearchInputInternal(searchInput, searchCrossBtn) {
   const valueLength = searchInput.value.length;
 
-  if (valueLength > 1) {
+  if (valueLength >= 3) {
     return;
   }
 

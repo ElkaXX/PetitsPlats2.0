@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Les petits plats</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@200..800&display=swap"
       rel="stylesheet"
-  >
-    <link rel="stylesheet" href="../dist/main.css">
+    />
+    <link rel="stylesheet" href="../dist/main.css" />
     <script src="js/filter.js" defer></script>
     <script src="js/recipe.js" defer></script>
     <script src="js/search.js" defer></script>
@@ -20,19 +20,19 @@
     <header
       class="pt-[50px] px-[70px] h-[666px] bg-cover bg-center bg-[url('/src/img/header.jpeg')]"
     >
-      <img class="w-[207px] h-[25px]" src="./img/logo.png" alt="Logo">
+      <img class="w-[207px] h-[25px]" src="./img/logo.png" alt="Logo" />
       <div
-        class="mx-auto w-[550px] mt-[170px] text-[#FFD15B] text-center font-anton text-4xl font-normal leading-normal"
+        class="mx-auto md:w-[550px] mt-[170px] text-[#FFD15B] text-center font-anton text-4xl font-normal leading-normal"
       >
         CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES
       </div>
       <div class="mt-[30px] flex justify-center relative">
-        <div class="search relative">
+        <div class="search relative w-[100%] lg:w-[954px]">
           <input
             type="text"
-            class="search__input w-[954px] h-[72px] flex-shrink-0 rounded-[11px] bg-[#FFF] px-4"
+            class="search__input w-[100%] h-[72px] flex-shrink-0 rounded-[11px] bg-[#FFF] px-4"
             placeholder="Rechercher une recette, un ingrédient, ..."
-          >
+          />
 
           <button
             class="search__cross-btn absolute right-[85px] top-[27px] hidden"
@@ -74,9 +74,8 @@
     </header>
 
     <main class="pt-[20px] mx-auto max-w-[1236px]">
-      <!-- Filters -->
-      <div class="flex justify-start items-center">
-        <div class="flex justify-start items-center gap-x-[66px] grow">
+      <div class="flex flex-col md:flex-row justify-start items-center gap-y-[10px]">
+        <div class="flex flex-col sm:flex-row justify-start items-center gap-x-[10px] md:gap-x-[66px] gap-y-[10px] grow">
           <div
             class="filter ingredients-filter relative group"
             onclick="event.stopPropagation();"
@@ -85,7 +84,7 @@
               class="rounded-[11px] group-[.open]:rounded-b-none bg-white inline-flex px-[16px] py-[17px] items-center gap-[63px] select-none cursor-pointer transition-[border] duration-200 ease-in-out"
             >
               <div>Ingrédients</div>
-              <img src="img/tags-arrow.svg" alt="arrow">
+              <img src="img/tags-arrow.svg" alt="arrow" />
             </div>
 
             <div
@@ -96,16 +95,16 @@
                 <input
                   class="search-input h-[100%] w-[100%] pl-[9px] pr-[50px] py-[10px] border-[#C6C6C6] border-[1px] rounded-[2px] outline-none"
                   type="text"
-                >
+                />
 
                 <button
                   class="cross-btn absolute top-[15px] right-[35px] hidden"
                 >
-                  <img src="img/tags-search-cross.svg" alt="cross">
+                  <img src="img/tags-search-cross.svg" alt="cross" />
                 </button>
 
                 <button class="search-btn absolute top-[11px] right-[11px]">
-                  <img src="img/tags-search.svg" alt="search">
+                  <img src="img/tags-search.svg" alt="search" />
                 </button>
               </div>
               <ul></ul>
@@ -120,7 +119,7 @@
               class="rounded-[11px] group-[.open]:rounded-b-none bg-white inline-flex px-[16px] py-[17px] items-center gap-[63px] select-none cursor-pointer transition-[border] duration-200 ease-in-out"
             >
               <div>Appareils</div>
-              <img src="img/tags-arrow.svg" alt="arrow">
+              <img src="img/tags-arrow.svg" alt="arrow" />
             </div>
 
             <div
@@ -131,15 +130,15 @@
                 <input
                   class="search-input h-[100%] w-[100%] pl-[9px] pr-[50px] py-[10px] border-[#C6C6C6] border-[1px] rounded-[2px] outline-none"
                   type="text"
-                >
+                />
                 <button
                   class="cross-btn absolute top-[15px] right-[35px] hidden"
                 >
-                  <img src="img/tags-search-cross.svg" alt="cross">
+                  <img src="img/tags-search-cross.svg" alt="cross" />
                 </button>
 
                 <button class="search-btn absolute top-[11px] right-[11px]">
-                  <img src="img/tags-search.svg" alt="search">
+                  <img src="img/tags-search.svg" alt="search" />
                 </button>
               </div>
               <ul></ul>
@@ -154,7 +153,7 @@
               class="rounded-[11px] group-[.open]:rounded-b-none bg-white inline-flex px-[16px] py-[17px] items-center gap-[63px] select-none cursor-pointer transition-[border] duration-200 ease-in-out"
             >
               <div>Ustensiles</div>
-              <img src="img/tags-arrow.svg" alt="arrow">
+              <img src="img/tags-arrow.svg" alt="arrow" />
             </div>
 
             <div
@@ -165,15 +164,15 @@
                 <input
                   class="search-input h-[100%] w-[100%] pl-[9px] pr-[50px] py-[10px] border-[#C6C6C6] border-[1px] rounded-[2px] outline-none"
                   type="text"
-                >
+                />
                 <button
                   class="cross-btn absolute top-[15px] right-[35px] hidden"
                 >
-                  <img src="img/tags-search-cross.svg" alt="cross">
+                  <img src="img/tags-search-cross.svg" alt="cross" />
                 </button>
 
                 <button class="search-btn absolute top-[11px] right-[11px]">
-                  <img src="img/tags-search.svg" alt="search">
+                  <img src="img/tags-search.svg" alt="search" />
                 </button>
               </div>
               <ul></ul>
@@ -186,9 +185,8 @@
 
       <ul class="selected-filters mt-[21px] flex flex-wrap gap-[20px]"></ul>
 
-      <!-- Recipes -->
       <ul
-        class="recipe-list mt-[55px] grid grid-cols-3 gap-x-[48px] gap-y-[66px]"
+        class="recipe-list mt-[55px] grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-[48px] gap-y-[66px] justify-items-center"
       ></ul>
 
       <div
